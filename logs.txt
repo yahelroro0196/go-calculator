@@ -1,0 +1,42 @@
+INFO: 2022/04/15 00:26:31 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:33:36 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:33:44 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:33:46 utils.go:7: Enter a mathematical equation -
+INFO: 2022/04/15 00:33:47 gui.go:31: 0 49
+INFO: 2022/04/15 00:33:47 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:34:30 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:34:33 utils.go:7: Enter a mathematical equation -
+INFO: 2022/04/15 00:34:37 gui.go:31: 0 1+1
+INFO: 2022/04/15 00:34:37 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:34:51 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:34:52 utils.go:7: Enter a mathematical equation -
+INFO: 2022/04/15 00:34:53 gui.go:30: 0 49
+INFO: 2022/04/15 00:34:53 gui.go:30: 1 43
+INFO: 2022/04/15 00:34:53 gui.go:30: 2 49
+INFO: 2022/04/15 00:34:53 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:36:28 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:36:31 utils.go:7: Enter a mathematical equation -
+INFO: 2022/04/15 00:36:32 gui.go:30: 0 49
+INFO: 2022/04/15 00:36:32 gui.go:30: 1 43
+INFO: 2022/04/15 00:36:32 gui.go:30: 2 49
+INFO: 2022/04/15 00:36:32 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:37:09 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:37:13 utils.go:7: Enter a mathematical equation -
+INFO: 2022/04/15 00:37:15 gui.go:30: %d, %c 0 49
+INFO: 2022/04/15 00:37:15 gui.go:30: %d, %c 1 43
+INFO: 2022/04/15 00:37:15 gui.go:30: %d, %c 2 49
+INFO: 2022/04/15 00:37:15 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:37:28 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:37:30 utils.go:7: Enter a mathematical equation -
+INFO: 2022/04/15 00:37:32 gui.go:30: 0, 1
+INFO: 2022/04/15 00:37:32 gui.go:30: 1, +
+INFO: 2022/04/15 00:37:32 gui.go:30: 2, 1
+INFO: 2022/04/15 00:37:32 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:47:15 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:47:17 utils.go:7: Enter a mathematical equation -
+INFO: 2022/04/15 00:47:21 gui.go:38: [{0 } {0 } {0 } {0 } {0 } {0 } {0 } {0 1} {1 +} {2 2} {3 +} {4 4} {5 +} {6 5}]
+INFO: 2022/04/15 00:47:21 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:48:00 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 00:48:09 utils.go:7: Enter a mathematical equation -
+INFO: 2022/04/15 00:48:13 gui.go:38: [{0 } {0 } {0 } {0 } {0 } {0 } {0 } {0 } {0 1} {1 +} {2 2} {3 4} {4 +} {5 5} {6 +} {7 3}]
+INFO: 2022/04/15 00:48:13 utils.go:7: Enter a menu option -

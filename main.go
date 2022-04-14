@@ -1,6 +1,6 @@
 package main
 
-import "core"
+import "main/core"
 
 func main() {
 	core.Run()

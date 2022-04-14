@@ -1,6 +1,7 @@
 package core
 
 import (
+	"io"
 	"log"
 	"os"
 )
@@ -17,8 +18,9 @@ func init() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	InfoLogger = log.New(file, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
-	WarningLogger = log.New(file, "WARNING: ", log.Ldate|log.Ltime|log.Lshortfile)
-	ErrorLogger = log.New(file, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
-	FatalLogger = log.New(file, "FATAL: ", log.Ldate|log.Ltime|log.Lshortfile)
+	mw := io.MultiWriter(os.Stdout, file)
+	InfoLogger = log.New(mw, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
+	WarningLogger = log.New(mw, "WARNING: ", log.Ldate|log.Ltime|log.Lshortfile)
+	ErrorLogger = log.New(mw, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
+	FatalLogger = log.New(mw, "FATAL: ", log.Ldate|log.Ltime|log.Lshortfile)
 }
