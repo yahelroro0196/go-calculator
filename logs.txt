@@ -78,3 +78,56 @@ INFO: 2022/04/15 11:18:58 utils.go:12: Enter a mathematical equation -
 INFO: 2022/04/15 11:19:07 logic.go:18: [{0 1} {1 +} {2 3} {3 5} {4 9} {5 2} {6 9} {7 3} {8 5}]
 INFO: 2022/04/15 11:19:07 logic.go:19: 9
 INFO: 2022/04/15 11:19:07 utils.go:12: Enter a menu option -
+INFO: 2022/04/15 18:06:26 utils.go:20: Enter a menu option -
+INFO: 2022/04/15 18:06:27 utils.go:20: Enter a mathematical equation -
+INFO: 2022/04/15 18:06:38 utils.go:20: Enter a menu option -
+INFO: 2022/04/15 18:06:48 utils.go:20: Enter a mathematical equation -
+INFO: 2022/04/15 18:07:00 utils.go:20: Enter a menu option -
+INFO: 2022/04/15 18:07:06 utils.go:20: Enter a menu option -
+INFO: 2022/04/15 18:07:13 utils.go:20: Enter a mathematical equation -
+INFO: 2022/04/15 18:07:22 utils.go:20: Enter a menu option -
+INFO: 2022/04/15 18:07:26 utils.go:20: Enter a menu option -
+INFO: 2022/04/15 18:07:37 utils.go:20: Enter a mathematical equation -
+INFO: 2022/04/15 18:11:01 utils.go:20: Enter a menu option -
+INFO: 2022/04/15 18:11:03 utils.go:20: Enter a mathematical equation -
+INFO: 2022/04/15 18:11:11 utils.go:20: Enter a menu option -
+INFO: 2022/04/15 18:11:15 utils.go:20: Enter a mathematical equation -
+INFO: 2022/04/15 18:25:12 utils.go:20: Enter a menu option -
+INFO: 2022/04/15 18:25:15 utils.go:20: Enter a menu option -
+INFO: 2022/04/15 18:25:18 utils.go:20: Enter a mathematical equation -
+INFO: 2022/04/15 18:25:50 utils.go:20: Enter a menu option -
+INFO: 2022/04/15 18:25:52 utils.go:20: Enter a mathematical equation -
+INFO: 2022/04/15 18:26:10 utils.go:20: Enter a menu option -
+INFO: 2022/04/15 18:26:12 utils.go:20: Enter a mathematical equation -
+INFO: 2022/04/15 18:39:13 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 18:39:14 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 18:41:59 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 18:42:00 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 18:50:59 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 18:51:00 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 18:51:24 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 18:51:26 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 18:52:13 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 18:52:15 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 18:53:17 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 18:53:21 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 18:53:39 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 18:53:41 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 18:53:51 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 18:53:52 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 18:55:08 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 18:55:10 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 18:57:01 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 18:57:03 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 18:57:48 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 18:57:50 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 19:00:32 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 19:00:33 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 19:01:13 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 19:01:16 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 19:01:21 solver.go:36: 0xc00004e300
+INFO: 2022/04/15 19:02:34 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 19:02:47 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 19:02:54 solver.go:36: 0xc0000762a0
+INFO: 2022/04/15 19:02:54 solver.go:15: 0xc0000762a0
+INFO: 2022/04/15 19:02:54 utils.go:28: Enter a menu option -

@@ -1,22 +1,24 @@
 package core
 
 import (
+	"main/core/utils"
 	"strconv"
 )
 
 func Run() {
 	continueRunning := true
 	for continueRunning == true {
-		userChoice, _ := strconv.Atoi(getUserInput("Enter a menu option -"))
+		userChoice, _ := strconv.Atoi(utils.GetUserInput("Enter a menu option -"))
 		switch userChoice {
 		case 1:
-			parseEquation()
+			parsedEquation := parseEquation()
+			utils.InfoLogger.Println(solveEquation(parsedEquation))
 		case 2:
 			panic("Option 2 not implemented - enter a file to load equations")
 		case 3:
 			panic("Option 3 not implemented - enter an equation to calculate")
 		case 4:
-			InfoLogger.Println("Exiting program...")
+			utils.InfoLogger.Println("Exiting program...")
 			continueRunning = false
 		default:
 			continue

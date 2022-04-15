@@ -1,6 +1,10 @@
 package core
 
-import "strings"
+import (
+	"container/list"
+	"main/core/utils"
+	"strings"
+)
 
 type Pair struct {
 	index int
@@ -14,35 +18,40 @@ const (
 	OPERATOR
 )
 
-type equationElement struct {
-	kind  elementKind
-	value string
-}
-
-func parseEquation() {
-	userInput := getUserInput("Enter a mathematical equation -")
+func parseEquation() list.List {
+	userInput := utils.GetUserInput("Enter a mathematical equation -")
 	userInput = strings.TrimSpace(userInput)
 	equationChars := strings.Split(userInput, "")
 	equation := make([]Pair, len(equationChars))
 	for i, rune := range equationChars {
 		equation[i] = Pair{i, string(rune)}
 	}
+	joinedEquation := joinElements(equation)
+	return joinedEquation
 }
 
-func joinEquationElements(equation []Pair) {
-	parsedEquation := make([]Pair, 0)
-	previousElement := equation[0]
-	outputQueue := make(chan equationElement, len(equation))
+func joinElements(equation []Pair) list.List {
+	joinedEquation := list.List{}
+	const EmptyElement = ""
+	currentElement := EmptyElement
 	for _, pair := range equation {
-		elementValue := pair.value
-		if isOperand(elementValue) {
-			if isOperand(previousElement.value) {
-				panic("continuation of operand")
+		if utils.IsOperand(pair.value) {
+			if currentElement != EmptyElement {
+				currentElement += pair.value
 			} else {
-				outputQueue <- equationElement{OPERAND, pair.value}
+				currentElement = pair.value
 			}
-		} else if isOperator(elementValue) {
-			panic("is operator")
+		} else if utils.IsOperator(pair.value) {
+			if currentElement != EmptyElement {
+				joinedEquation.PushFront(currentElement)
+				currentElement = EmptyElement
+			} else {
+				utils.ErrorLogger.Println("Equation invalid, reenter it.")
+				return list.List{}
+			}
+			joinedEquation.PushFront(pair.value)
 		}
 	}
+	joinedEquation.PushFront(currentElement)
+	return joinedEquation
 }

@@ -1,8 +1,9 @@
-package core
+package utils
 
 import (
 	"bufio"
 	"os"
+	"strconv"
 	"strings"
 	"unicode"
 )
@@ -14,7 +15,15 @@ var allowedOperators = map[string]bool{
 	"/": true,
 }
 
-func getUserInput(inputInstruction string) string {
+var operatorPrecedence = map[interface{}]int{
+	"^": 3,
+	"*": 2,
+	"/": 2,
+	"+": 1,
+	"-": 1,
+}
+
+func GetUserInput(inputInstruction string) string {
 	reader := bufio.NewReader(os.Stdin)
 	InfoLogger.Println(inputInstruction)
 	input, err := reader.ReadString('\n')
@@ -35,10 +44,15 @@ func cleanString(input string) string {
 	}, input)
 }
 
-func isOperand(element string) bool {
-	return unicode.IsDigit(element)
+func IsOperand(element string) bool {
+	_, err := strconv.Atoi(element)
+	return err == nil
 }
 
-func isOperator(element string) bool {
+func IsOperator(element string) bool {
 	return allowedOperators[element]
+}
+
+func IsHigherPrecedence(originalOperator interface{}, newOperator interface{}) bool {
+	return operatorPrecedence[originalOperator] >= operatorPrecedence[newOperator]
 }
