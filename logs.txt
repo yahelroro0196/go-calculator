@@ -131,3 +131,7 @@ INFO: 2022/04/15 19:02:47 utils.go:28: Enter a mathematical equation -
 INFO: 2022/04/15 19:02:54 solver.go:36: 0xc0000762a0
 INFO: 2022/04/15 19:02:54 solver.go:15: 0xc0000762a0
 INFO: 2022/04/15 19:02:54 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 19:28:25 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 19:28:26 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/15 19:28:32 utils.go:28: Enter a menu option -
+INFO: 2022/04/15 19:28:33 utils.go:28: Enter a mathematical equation -

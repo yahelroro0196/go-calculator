@@ -11,22 +11,34 @@ type equationElement struct {
 	value string
 }
 
-var operatorEval = map[string]interface{}{
-	"^": func(leftOperand float32, rightOperand float32) float32 {
-		return float32(math.Pow(float64(leftOperand), float64(rightOperand)))
-	},
-	"*": func(leftOperand float32, rightOperand float32) float32 {
-		return leftOperand * rightOperand
-	},
-	"/": func(leftOperand float32, rightOperand float32) float32 {
-		return leftOperand / rightOperand
-	},
-	"+": func(leftOperand float32, rightOperand float32) float32 {
-		return leftOperand + rightOperand
-	},
-	"-": func(leftOperand float32, rightOperand float32) float32 {
-		return leftOperand - rightOperand
-	},
+type operator func(float32, float32) float32
+
+func power(leftOperand float32, rightOperand float32) float32 {
+	return float32(math.Pow(float64(leftOperand), float64(rightOperand)))
+}
+
+func multiply(leftOperand float32, rightOperand float32) float32 {
+	return leftOperand * rightOperand
+}
+
+func division(leftOperand float32, rightOperand float32) float32 {
+	return leftOperand / rightOperand
+}
+
+func add(leftOperand float32, rightOperand float32) float32 {
+	return leftOperand + rightOperand
+}
+
+func sub(leftOperand float32, rightOperand float32) float32 {
+	return leftOperand - rightOperand
+}
+
+var operatorEval = map[string]operator{
+	"^": power,
+	"*": multiply,
+	"/": division,
+	"+": add,
+	"-": sub,
 }
 
 func solveEquation(parsedEquation list.List) interface{} {
@@ -61,9 +73,9 @@ func postfixToResult(postfixQueue chan equationElement) interface{} {
 		if token.kind == OPERAND {
 			resultStack.Push(token)
 		} else {
-			rightOperand := resultStack.Pop()
-			leftOperand := resultStack.Pop()
-			resultStack.Push(operatorEval[token.value](rightOperand, leftOperand))
+			rightOperand := resultStack.Pop().(float32)
+			leftOperand := resultStack.Pop().(float32)
+			resultStack.Push(operatorEval[token.value](leftOperand, rightOperand))
 		}
 	}
 	result := resultStack.Pop()
