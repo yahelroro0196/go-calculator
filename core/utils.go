@@ -7,7 +7,7 @@ import (
 	"unicode"
 )
 
-var visitedURL = map[string]bool{
+var allowedOperators = map[string]bool{
 	"+": true,
 	"-": true,
 	"*": true,
@@ -35,10 +35,10 @@ func cleanString(input string) string {
 	}, input)
 }
 
-func isOperand(element rune) bool {
+func isOperand(element string) bool {
 	return unicode.IsDigit(element)
 }
 
-func isOperator(element rune) bool {
-	return visitedURL[string(element)]
+func isOperator(element string) bool {
+	return allowedOperators[element]
 }
