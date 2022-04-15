@@ -40,3 +40,41 @@ INFO: 2022/04/15 00:48:00 utils.go:7: Enter a menu option -
 INFO: 2022/04/15 00:48:09 utils.go:7: Enter a mathematical equation -
 INFO: 2022/04/15 00:48:13 gui.go:38: [{0 } {0 } {0 } {0 } {0 } {0 } {0 } {0 } {0 1} {1 +} {2 2} {3 4} {4 +} {5 5} {6 +} {7 3}]
 INFO: 2022/04/15 00:48:13 utils.go:7: Enter a menu option -
+INFO: 2022/04/15 10:58:28 utils.go:10: Enter a menu option -
+INFO: 2022/04/15 10:58:33 utils.go:10: Enter a menu option -
+INFO: 2022/04/15 10:59:39 utils.go:11: Enter a menu option -
+INFO: 2022/04/15 10:59:56 utils.go:11: Enter a mathematical equation -
+INFO: 2022/04/15 11:00:03 gui.go:38: [{0 } {0 } {0 } {0 1} {1 +} {2 1}]
+INFO: 2022/04/15 11:00:03 utils.go:11: Enter a menu option -
+INFO: 2022/04/15 11:06:47 utils.go:11: Enter a menu option -
+INFO: 2022/04/15 11:06:50 utils.go:11: Enter a mathematical equation -
+INFO: 2022/04/15 11:06:52 logic.go:18: [{0 } {0 } {0 } {0 1} {1 +} {2 1}]
+INFO: 2022/04/15 11:06:52 utils.go:11: Enter a menu option -
+INFO: 2022/04/15 11:07:15 utils.go:11: Enter a menu option -
+INFO: 2022/04/15 11:07:17 utils.go:11: Enter a mathematical equation -
+INFO: 2022/04/15 11:07:19 logic.go:18: [{0 } {0 } {0 } {0 1} {1 +} {2 1}]
+INFO: 2022/04/15 11:07:19 logic.go:19: 6
+INFO: 2022/04/15 11:07:19 utils.go:11: Enter a menu option -
+INFO: 2022/04/15 11:07:42 utils.go:11: Enter a menu option -
+INFO: 2022/04/15 11:07:43 utils.go:11: Enter a mathematical equation -
+INFO: 2022/04/15 11:07:44 logic.go:20: [{0 } {0 } {0 } {0 1} {1 +} {2 1}]
+INFO: 2022/04/15 11:07:44 logic.go:21: 6
+INFO: 2022/04/15 11:07:44 utils.go:11: Enter a menu option -
+INFO: 2022/04/15 11:13:45 utils.go:11: Enter a menu option -
+INFO: 2022/04/15 11:13:51 utils.go:11: Enter a menu option -
+INFO: 2022/04/15 11:13:53 utils.go:11: Enter a mathematical equation -
+INFO: 2022/04/15 11:13:54 logic.go:18: [{0 } {0 } {0 } {0 1} {1 +} {2 !}]
+INFO: 2022/04/15 11:13:54 logic.go:19: 6
+INFO: 2022/04/15 11:13:54 utils.go:11: Enter a menu option -
+INFO: 2022/04/15 11:16:43 utils.go:12: Enter a menu option -
+INFO: 2022/04/15 11:16:45 utils.go:12: Enter a mathematical equation -
+INFO: 2022/04/15 11:16:47 logic.go:18: [{0 } {0 } {0 } {0 1} {1 +} {2 1}]
+INFO: 2022/04/15 11:16:47 logic.go:19: 6
+INFO: 2022/04/15 11:16:47 utils.go:12: Enter a menu option -
+INFO: 2022/04/15 11:17:02 utils.go:12: Enter a menu option -
+INFO: 2022/04/15 11:17:05 utils.go:12: Enter a mathematical equation -
+INFO: 2022/04/15 11:18:54 utils.go:12: Enter a menu option -
+INFO: 2022/04/15 11:18:58 utils.go:12: Enter a mathematical equation -
+INFO: 2022/04/15 11:19:07 logic.go:18: [{0 1} {1 +} {2 3} {3 5} {4 9} {5 2} {6 9} {7 3} {8 5}]
+INFO: 2022/04/15 11:19:07 logic.go:19: 9
+INFO: 2022/04/15 11:19:07 utils.go:12: Enter a menu option -

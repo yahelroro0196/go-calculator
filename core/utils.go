@@ -1,14 +1,44 @@
 package core
 
-import "fmt"
+import (
+	"bufio"
+	"os"
+	"strings"
+	"unicode"
+)
+
+var visitedURL = map[string]bool{
+	"+": true,
+	"-": true,
+	"*": true,
+	"/": true,
+}
 
 func getUserInput(inputInstruction string) string {
-	var userInput string
+	reader := bufio.NewReader(os.Stdin)
 	InfoLogger.Println(inputInstruction)
-	_, err := fmt.Scan(&userInput)
+	input, err := reader.ReadString('\n')
 	if err != nil {
 		FatalLogger.Println("Couldn't get user input, exiting...")
 		return ""
 	}
-	return userInput
+	input = strings.TrimSuffix(input, "\n")
+	return cleanString(input)
+}
+
+func cleanString(input string) string {
+	return strings.Map(func(r rune) rune {
+		if unicode.IsGraphic(r) {
+			return r
+		}
+		return -1
+	}, input)
+}
+
+func isOperand(element rune) bool {
+	return unicode.IsDigit(element)
+}
+
+func isOperator(element rune) bool {
+	return visitedURL[string(element)]
 }

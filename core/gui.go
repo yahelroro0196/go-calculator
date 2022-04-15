@@ -4,11 +4,6 @@ import (
 	"strconv"
 )
 
-type Pair struct {
-	index int
-	value string
-}
-
 func Run() {
 	continueRunning := true
 	for continueRunning == true {
@@ -27,13 +22,4 @@ func Run() {
 			continue
 		}
 	}
-}
-
-func parseEquation() {
-	userInput := getUserInput("Enter a mathematical equation -")
-	equation := make([]Pair, len(userInput))
-	for i, rune := range userInput {
-		equation = append(equation, Pair{i, string(rune)})
-	}
-	InfoLogger.Println(equation)
 }
