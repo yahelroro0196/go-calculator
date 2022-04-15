@@ -12,7 +12,7 @@ func Run() {
 		switch userChoice {
 		case 1:
 			parsedEquation := parseEquation()
-			utils.InfoLogger.Println(solveEquation(parsedEquation))
+			utils.InfoLogger.Printf("Result: %s\n", solveEquation(parsedEquation))
 		case 2:
 			panic("Option 2 not implemented - enter a file to load equations")
 		case 3:

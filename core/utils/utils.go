@@ -56,3 +56,8 @@ func IsOperator(element string) bool {
 func IsHigherPrecedence(originalOperator interface{}, newOperator interface{}) bool {
 	return operatorPrecedence[originalOperator] >= operatorPrecedence[newOperator]
 }
+
+func ConvertToFloat(token string) float64 {
+	result, _ := strconv.ParseFloat(token, 32)
+	return result
+}

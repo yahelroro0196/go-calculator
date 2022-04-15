@@ -2,34 +2,32 @@ package core
 
 import (
 	"container/list"
+	"fmt"
+	llq "github.com/emirpasic/gods/queues/linkedlistqueue"
+	lls "github.com/emirpasic/gods/stacks/linkedliststack"
 	"main/core/utils"
 	"math"
 )
 
-type equationElement struct {
-	kind  elementKind
-	value string
+type operator func(float64, float64) float64
+
+func power(leftOperand float64, rightOperand float64) float64 {
+	return math.Pow(leftOperand, rightOperand)
 }
 
-type operator func(float32, float32) float32
-
-func power(leftOperand float32, rightOperand float32) float32 {
-	return float32(math.Pow(float64(leftOperand), float64(rightOperand)))
-}
-
-func multiply(leftOperand float32, rightOperand float32) float32 {
+func multiply(leftOperand float64, rightOperand float64) float64 {
 	return leftOperand * rightOperand
 }
 
-func division(leftOperand float32, rightOperand float32) float32 {
+func division(leftOperand float64, rightOperand float64) float64 {
 	return leftOperand / rightOperand
 }
 
-func add(leftOperand float32, rightOperand float32) float32 {
+func add(leftOperand float64, rightOperand float64) float64 {
 	return leftOperand + rightOperand
 }
 
-func sub(leftOperand float32, rightOperand float32) float32 {
+func sub(leftOperand float64, rightOperand float64) float64 {
 	return leftOperand - rightOperand
 }
 
@@ -46,17 +44,20 @@ func solveEquation(parsedEquation list.List) interface{} {
 	return postfixToResult(postfix)
 }
 
-func infixToPostfix(equation list.List) chan equationElement {
-	postfixQueue := make(chan equationElement, 100)
-	operatorStack := utils.NewStack()
+func infixToPostfix(equation list.List) *llq.Queue {
+	postfixQueue := llq.New()
+	operatorStack := lls.New()
 	for element := equation.Back(); element != nil; element = element.Prev() {
 		elementValue := element.Value.(string)
 		if utils.IsOperand(elementValue) {
-			postfixQueue <- equationElement{OPERAND, elementValue}
+			postfixQueue.Enqueue(elementValue)
 		} else if utils.IsOperator(elementValue) {
-			if !operatorStack.IsEmpty() {
-				for operatorStack.Head() != nil && utils.IsHigherPrecedence(operatorStack.Head(), elementValue) {
-					postfixQueue <- equationElement{OPERATOR, operatorStack.Pop().(string)}
+			if !operatorStack.Empty() {
+				stackValue, _ := operatorStack.Peek()
+				operatorCondition := operatorStack.Empty() && utils.IsHigherPrecedence(stackValue, elementValue)
+				for operatorCondition {
+					currentOperator, _ := operatorStack.Pop()
+					postfixQueue.Enqueue(currentOperator)
 				}
 				operatorStack.Push(elementValue)
 			} else {
@@ -64,20 +65,29 @@ func infixToPostfix(equation list.List) chan equationElement {
 			}
 		}
 	}
+	for !operatorStack.Empty() {
+		currentOperator, _ := operatorStack.Pop()
+		postfixQueue.Enqueue(currentOperator)
+	}
 	return postfixQueue
 }
 
-func postfixToResult(postfixQueue chan equationElement) interface{} {
-	resultStack := utils.NewStack()
-	for token := range postfixQueue {
-		if token.kind == OPERAND {
+func postfixToResult(postfixQueue *llq.Queue) interface{} {
+	resultStack := lls.New()
+	iterator := postfixQueue.Iterator()
+	iterator.First()
+	for token := iterator.Value(); token != nil; token = iterator.Value() {
+		if utils.IsOperand(token.(string)) {
 			resultStack.Push(token)
 		} else {
-			rightOperand := resultStack.Pop().(float32)
-			leftOperand := resultStack.Pop().(float32)
-			resultStack.Push(operatorEval[token.value](leftOperand, rightOperand))
+			rightToken, _ := resultStack.Pop()
+			leftToken, _ := resultStack.Pop()
+			rightOperand := utils.ConvertToFloat(rightToken.(string))
+			leftOperand := utils.ConvertToFloat(leftToken.(string))
+			resultStack.Push(fmt.Sprintf("%f", operatorEval[token.(string)](leftOperand, rightOperand)))
 		}
+		iterator.Next()
 	}
-	result := resultStack.Pop()
+	result, _ := resultStack.Pop()
 	return result
 }
