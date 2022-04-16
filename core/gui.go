@@ -16,8 +16,6 @@ func Run() {
 		case 2:
 			panic("Option 2 not implemented - enter a file to load equations")
 		case 3:
-			panic("Option 3 not implemented - enter an equation to calculate")
-		case 4:
 			utils.InfoLogger.Println("Exiting program...")
 			continueRunning = false
 		default:

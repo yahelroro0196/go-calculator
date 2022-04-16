@@ -117,14 +117,19 @@ func postfixToResult(postfixQueue *llq.Queue) interface{} {
 		if utils.IsOperand(token.(string)) {
 			resultStack.Push(token)
 		} else {
-			rightToken, _ := resultStack.Pop()
-			leftToken, _ := resultStack.Pop()
-			rightOperand := utils.ConvertToFloat(rightToken.(string))
-			leftOperand := utils.ConvertToFloat(leftToken.(string))
-			resultStack.Push(fmt.Sprintf("%f", operatorEval[token.(string)](leftOperand, rightOperand)))
+			resultStack = solveExpression(resultStack, token)
 		}
 		iterator.Next()
 	}
 	result, _ := resultStack.Pop()
 	return result
+}
+
+func solveExpression(resultStack *lls.Stack, token interface{}) *lls.Stack {
+	rightToken, _ := resultStack.Pop()
+	leftToken, _ := resultStack.Pop()
+	rightOperand := utils.ConvertToFloat(rightToken.(string))
+	leftOperand := utils.ConvertToFloat(leftToken.(string))
+	resultStack.Push(fmt.Sprintf("%f", operatorEval[token.(string)](leftOperand, rightOperand)))
+	return resultStack
 }
