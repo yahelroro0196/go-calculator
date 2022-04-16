@@ -11,13 +11,6 @@ type Pair struct {
 	value string
 }
 
-type elementKind int
-
-const (
-	OPERAND elementKind = iota
-	OPERATOR
-)
-
 func parseEquation() list.List {
 	userInput := utils.GetUserInput("Enter a mathematical equation -")
 	userInput = strings.TrimSpace(userInput)
@@ -45,9 +38,6 @@ func joinElements(equation []Pair) list.List {
 			if currentElement != EmptyElement {
 				joinedEquation.PushFront(currentElement)
 				currentElement = EmptyElement
-			} else {
-				utils.ErrorLogger.Println("Equation invalid, reenter it.")
-				return list.List{}
 			}
 			joinedEquation.PushFront(pair.value)
 		}

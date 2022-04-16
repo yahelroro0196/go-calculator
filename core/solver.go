@@ -45,31 +45,68 @@ func solveEquation(parsedEquation list.List) interface{} {
 }
 
 func infixToPostfix(equation list.List) *llq.Queue {
-	postfixQueue := llq.New()
-	operatorStack := lls.New()
+	postfixQueue, operatorStack := llq.New(), lls.New()
 	for element := equation.Back(); element != nil; element = element.Prev() {
 		elementValue := element.Value.(string)
 		if utils.IsOperand(elementValue) {
 			postfixQueue.Enqueue(elementValue)
+		} else if utils.IsLeftParenthesis(elementValue) {
+			operatorStack.Push(elementValue)
+		} else if utils.IsRightParenthesis(elementValue) {
+			operatorStack, postfixQueue = handleParenthesis(operatorStack, postfixQueue)
 		} else if utils.IsOperator(elementValue) {
-			if !operatorStack.Empty() {
-				stackValue, _ := operatorStack.Peek()
-				operatorCondition := operatorStack.Empty() && utils.IsHigherPrecedence(stackValue, elementValue)
-				for operatorCondition {
-					currentOperator, _ := operatorStack.Pop()
-					postfixQueue.Enqueue(currentOperator)
-				}
-				operatorStack.Push(elementValue)
-			} else {
-				operatorStack.Push(elementValue)
-			}
+			operatorStack, postfixQueue = handleOperator(operatorStack, elementValue, postfixQueue)
 		}
 	}
+	postfixQueue = emptyStackTokens(operatorStack, postfixQueue)
+	return postfixQueue
+}
+
+func emptyStackTokens(operatorStack *lls.Stack, postfixQueue *llq.Queue) *llq.Queue {
 	for !operatorStack.Empty() {
 		currentOperator, _ := operatorStack.Pop()
 		postfixQueue.Enqueue(currentOperator)
 	}
 	return postfixQueue
+}
+
+func handleParenthesis(operatorStack *lls.Stack, postfixQueue *llq.Queue) (*lls.Stack, *llq.Queue) {
+	operatorCondition := extractParenthesisCondition(operatorStack)
+	for operatorCondition {
+		currentOperator, _ := operatorStack.Pop()
+		postfixQueue.Enqueue(currentOperator)
+		operatorCondition = extractParenthesisCondition(operatorStack)
+	}
+	operatorStack.Pop()
+	return operatorStack, postfixQueue
+}
+
+func extractParenthesisCondition(operatorStack *lls.Stack) bool {
+	stackValue, _ := operatorStack.Peek()
+	operatorCondition := !operatorStack.Empty() && stackValue != "("
+	return operatorCondition
+}
+
+func handleOperator(operatorStack *lls.Stack, elementValue string, postfixQueue *llq.Queue) (*lls.Stack, *llq.Queue) {
+	if !operatorStack.Empty() {
+		operatorCondition := extractOperatorCondition(operatorStack, elementValue)
+		for operatorCondition {
+			currentOperator, _ := operatorStack.Pop()
+			postfixQueue.Enqueue(currentOperator)
+			operatorCondition = extractOperatorCondition(operatorStack, elementValue)
+		}
+		operatorStack.Push(elementValue)
+	} else {
+		operatorStack.Push(elementValue)
+	}
+	return operatorStack, postfixQueue
+}
+
+func extractOperatorCondition(operatorStack *lls.Stack, elementValue string) bool {
+	stackValue, _ := operatorStack.Peek()
+	operatorCondition := !operatorStack.Empty() && !utils.IsParentheses(stackValue.(string)) &&
+		utils.IsHigherPrecedence(stackValue, elementValue)
+	return operatorCondition
 }
 
 func postfixToResult(postfixQueue *llq.Queue) interface{} {

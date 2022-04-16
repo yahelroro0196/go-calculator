@@ -13,6 +13,8 @@ var allowedOperators = map[string]bool{
 	"-": true,
 	"*": true,
 	"/": true,
+	"(": true,
+	")": true,
 }
 
 var operatorPrecedence = map[interface{}]int{
@@ -55,6 +57,18 @@ func IsOperator(element string) bool {
 
 func IsHigherPrecedence(originalOperator interface{}, newOperator interface{}) bool {
 	return operatorPrecedence[originalOperator] >= operatorPrecedence[newOperator]
+}
+
+func IsParentheses(element string) bool {
+	return IsLeftParenthesis(element) || IsRightParenthesis(element)
+}
+
+func IsLeftParenthesis(element string) bool {
+	return element == "("
+}
+
+func IsRightParenthesis(element string) bool {
+	return element == ")"
 }
 
 func ConvertToFloat(token string) float64 {

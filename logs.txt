@@ -168,3 +168,56 @@ INFO: 2022/04/16 00:20:20 utils.go:28: Enter a menu option -
 INFO: 2022/04/16 00:20:22 utils.go:28: Enter a mathematical equation -
 INFO: 2022/04/16 00:20:27 gui.go:15: Result: 101.000000
 INFO: 2022/04/16 00:20:27 utils.go:28: Enter a menu option -
+INFO: 2022/04/16 16:48:38 utils.go:28: Enter a menu option -
+INFO: 2022/04/16 16:48:39 utils.go:28: Enter a mathematical equation -
+INFO: 2022/04/16 16:50:00 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 16:50:01 utils.go:30: Enter a mathematical equation -
+ERROR: 2022/04/16 16:50:11 logic.go:49: Equation invalid, reenter it.
+INFO: 2022/04/16 16:50:21 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 16:50:28 utils.go:30: Enter a mathematical equation -
+ERROR: 2022/04/16 16:52:55 logic.go:49: Equation invalid, reenter it.
+INFO: 2022/04/16 16:54:14 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 16:54:15 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 16:55:17 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 16:55:19 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 16:58:07 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 16:58:15 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 16:58:17 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:00:28 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:00:28 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:16:19 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:16:22 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:19:40 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:19:51 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:19:56 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:19:59 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:21:57 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:22:05 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:25:15 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:25:19 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:28:36 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:28:50 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:28:52 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:29:26 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:29:27 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:32:20 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:32:22 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:33:05 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:33:19 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:33:20 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:36:02 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:36:04 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:36:15 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:36:16 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:40:49 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:40:52 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:40:55 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:40:57 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:42:05 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:42:06 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:43:16 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:43:18 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:43:41 utils.go:30: Enter a menu option -
+INFO: 2022/04/16 17:43:43 utils.go:30: Enter a mathematical equation -
+INFO: 2022/04/16 17:45:32 gui.go:15: Result: 7.250000
+INFO: 2022/04/16 17:45:35 utils.go:30: Enter a menu option -
