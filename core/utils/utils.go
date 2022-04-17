@@ -38,9 +38,9 @@ func GetUserInput(inputInstruction string) string {
 }
 
 func cleanString(input string) string {
-	return strings.Map(func(r rune) rune {
-		if unicode.IsGraphic(r) {
-			return r
+	return strings.Map(func(token rune) rune {
+		if unicode.IsGraphic(token) {
+			return token
 		}
 		return -1
 	}, input)

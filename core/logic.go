@@ -15,14 +15,19 @@ type Pair struct {
 
 func parseEquation() list.List {
 	userInput := utils.GetUserInput("Enter a mathematical equation -")
+	equation := cleanBasicInput(userInput)
+	joinedEquation := joinElements(equation)
+	return joinedEquation
+}
+
+func cleanBasicInput(userInput string) []Pair {
 	userInput = strings.TrimSpace(userInput)
 	equationChars := strings.Split(userInput, EmptyElement)
 	equation := make([]Pair, len(equationChars))
-	for i, rune := range equationChars {
-		equation[i] = Pair{i, string(rune)}
+	for i, token := range equationChars {
+		equation[i] = Pair{i, string(token)}
 	}
-	joinedEquation := joinElements(equation)
-	return joinedEquation
+	return equation
 }
 
 func joinElements(equation []Pair) list.List {
