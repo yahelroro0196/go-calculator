@@ -5,39 +5,9 @@ import (
 	"fmt"
 	llq "github.com/emirpasic/gods/queues/linkedlistqueue"
 	lls "github.com/emirpasic/gods/stacks/linkedliststack"
+	"main/core/datatypes"
 	"main/core/utils"
-	"math"
 )
-
-type operator func(float64, float64) float64
-
-func power(leftOperand float64, rightOperand float64) float64 {
-	return math.Pow(leftOperand, rightOperand)
-}
-
-func multiply(leftOperand float64, rightOperand float64) float64 {
-	return leftOperand * rightOperand
-}
-
-func division(leftOperand float64, rightOperand float64) float64 {
-	return leftOperand / rightOperand
-}
-
-func add(leftOperand float64, rightOperand float64) float64 {
-	return leftOperand + rightOperand
-}
-
-func sub(leftOperand float64, rightOperand float64) float64 {
-	return leftOperand - rightOperand
-}
-
-var operatorEval = map[string]operator{
-	"^": power,
-	"*": multiply,
-	"/": division,
-	"+": add,
-	"-": sub,
-}
 
 func solveEquation(parsedEquation list.List) interface{} {
 	postfix := infixToPostfix(parsedEquation)
@@ -130,6 +100,6 @@ func solveExpression(resultStack *lls.Stack, token interface{}) *lls.Stack {
 	leftToken, _ := resultStack.Pop()
 	rightOperand := utils.ConvertToFloat(rightToken.(string))
 	leftOperand := utils.ConvertToFloat(leftToken.(string))
-	resultStack.Push(fmt.Sprintf("%f", operatorEval[token.(string)](leftOperand, rightOperand)))
+	resultStack.Push(fmt.Sprintf("%f", datatypes.OperatorEval[token.(string)](leftOperand, rightOperand)))
 	return resultStack
 }

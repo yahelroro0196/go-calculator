@@ -1,13 +1,12 @@
 package core
 
 import (
+	"main/core/datatypes"
 	"main/core/utils"
 	"strconv"
 )
 
-type option func() bool
-
-var optionEval = map[int]option{
+var optionEval = map[int]datatypes.Option{
 	1: runEquationInputSolver,
 	2: runEquationFileSolver,
 	3: runExit,
@@ -16,7 +15,7 @@ var optionEval = map[int]option{
 func Run() {
 	continueRunning := true
 	for continueRunning == true {
-		userChoice, _ := strconv.Atoi(utils.GetUserInput("Enter a menu option -"))
+		userChoice, _ := strconv.Atoi(utils.GetUserInput("Enter a menu Option -"))
 		continueRunning = optionEval[userChoice]()
 	}
 }
