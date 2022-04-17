@@ -1,48 +1,57 @@
 package core
 
-import "strings"
-
-type Pair struct {
-	index int
-	value string
-}
-
-type elementKind int
-
-const (
-	OPERAND elementKind = iota
-	OPERATOR
+import (
+	"container/list"
+	"main/core/datatypes"
+	"main/core/utils"
+	"strings"
 )
 
-type equationElement struct {
-	kind  elementKind
-	value string
+func parseEquation() list.List {
+	userInput := utils.GetUserInput("Enter a mathematical equation -")
+	equation := cleanBasicInput(userInput)
+	joinedEquation := joinElements(equation)
+	return joinedEquation
 }
 
-func parseEquation() {
-	userInput := getUserInput("Enter a mathematical equation -")
+func cleanBasicInput(userInput string) []datatypes.Pair {
 	userInput = strings.TrimSpace(userInput)
-	equationChars := strings.Split(userInput, "")
-	equation := make([]Pair, len(equationChars))
-	for i, rune := range equationChars {
-		equation[i] = Pair{i, string(rune)}
+	equationChars := strings.Split(userInput, datatypes.EmptyElement)
+	equation := make([]datatypes.Pair, len(equationChars))
+	for i, token := range equationChars {
+		equation[i] = datatypes.Pair{Index: i, Value: string(token)}
 	}
+	return equation
 }
 
-func joinEquationElements(equation []Pair) {
-	parsedEquation := make([]Pair, 0)
-	previousElement := equation[0]
-	outputQueue := make(chan equationElement, len(equation))
+func joinElements(equation []datatypes.Pair) list.List {
+	joinedEquation := list.List{}
+	currentElement := datatypes.EmptyElement
 	for _, pair := range equation {
-		elementValue := pair.value
-		if isOperand(elementValue) {
-			if isOperand(previousElement.value) {
-				panic("continuation of operand")
-			} else {
-				outputQueue <- equationElement{OPERAND, pair.value}
-			}
-		} else if isOperator(elementValue) {
-			panic("is operator")
+		if utils.IsOperand(pair.Value) {
+			currentElement = parseOperand(currentElement, pair)
+		} else if utils.IsOperator(pair.Value) {
+			currentElement, joinedEquation = parseOperator(currentElement, joinedEquation, pair)
 		}
 	}
+	joinedEquation.PushFront(currentElement)
+	return joinedEquation
+}
+
+func parseOperator(currentElement string, joinedEquation list.List, pair datatypes.Pair) (string, list.List) {
+	if currentElement != datatypes.EmptyElement {
+		joinedEquation.PushFront(currentElement)
+		currentElement = datatypes.EmptyElement
+	}
+	joinedEquation.PushFront(pair.Value)
+	return currentElement, joinedEquation
+}
+
+func parseOperand(currentElement string, pair datatypes.Pair) string {
+	if currentElement != datatypes.EmptyElement {
+		currentElement += pair.Value
+	} else {
+		currentElement = pair.Value
+	}
+	return currentElement
 }
